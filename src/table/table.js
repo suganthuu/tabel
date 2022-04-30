@@ -36,7 +36,7 @@ export default function Table() {
             marginLeft: "30%",
           }}
         >
-          school Table
+          School Table
         </h2>
         <tr>
           {period.map((i) => (
