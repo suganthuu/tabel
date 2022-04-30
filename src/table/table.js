@@ -14,14 +14,14 @@ export default function Table() {
   // }, []);
   return (
     <div className="back bak">
-      <video className="video" autoPlay loop muted>
+      {/* <video className="video" autoPlay loop muted>
         <source
           src={
             "https://cdn.videvo.net/videvo_files/video/free/2016-03/large_watermarked/Hologram_Planet_by_nuva_preview.mp4"
           }
           type="video/mp4"
         />
-      </video>
+      </video> */}
       <div
         style={{
           color: "red",
