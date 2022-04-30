@@ -1,0 +1,146 @@
+table,
+th,
+td {
+  border: 1px solid grey;
+  /* text-align: center; */
+  padding: 4px;
+}
+
+tr {
+  border: 1px solid grey;
+
+  /* text-align: center; */
+}
+table {
+  border: 1px solid grey;
+
+  /* text-align: center; */
+}
+
+.sub-border {
+  border: 0.01px solid grey;
+  padding: 3px;
+  float: left;
+  margin-right: 2px;
+  border-bottom: unset;
+  border-right: none;
+  border-top: none;
+  width: 97px !important;
+  max-width: 97px !important;
+}
+.subject {
+  /* text-align: center; */
+  padding-left: 0.1px;
+  padding-left: -0.1px;
+}
+
+.peri-od {
+  padding: 4.3px;
+  padding-left: 5.1px;
+  padding-right: 8.3px;
+
+  display: inline;
+  padding-bottom: 1px;
+  border: 0.01px solid grey;
+  width: 95.7px !important;
+  max-width: 97px !important;
+  float: left;
+  margin-right: 2px;
+}
+.space {
+  padding: 17px;
+  padding-top: 3.3px;
+  padding-bottom: 5px;
+  border-left: none;
+  color: aquamarine;
+
+  border-bottom: none;
+}
+.day-space {
+  padding: 18.2px;
+}
+.day {
+  padding: 27.6px;
+  border-right: none;
+  width: 94px !important;
+  max-width: 97px !important;
+  color: skyblue;
+}
+.th-peri {
+  border: none;
+  padding-left: 0px;
+}
+
+/* background-image: linear-gradient(to right, #51e2f5,#9df9ef,#edf756,#ffa8B6,#a28089); */
+@keyframes color {
+  0% {
+    background: linear-gradient(
+      to right,
+      #51e2f5,
+      #9df9ef,
+      #edf756,
+      #ffa8b6,
+      #a28089
+    );
+  }
+  20% {
+    background: #33cc36;
+  }
+  40% {
+    background: #b8cc33;
+  }
+  60% {
+    background: linear-gradient(
+      to right,
+      #51e2f5,
+      #9df9ef,
+      #edf756,
+      #ffa8b6,
+      #a28089
+    );
+  }
+  80% {
+    background: #33cc36;
+  }
+  100% {
+    background: #33cccc;
+  }
+}
+
+.abc {
+  background: #33cccc; /* Fallback */
+  animation: color 3s infinite linear;
+  text-align: center;
+  padding: 2em;
+  opacity: 0.5;
+  width: fit-content;
+  height: 10px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 30%;
+}
+
+.back {
+  /* https://cdn.videvo.net/videvo_files/video/free/2013-09/large_watermarked/MoonandSeaHDFInalRenderH264_preview.mp4 */
+
+  /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg"); */
+  height: 554px;
+
+  padding-top: 0.1px;
+}
+
+::selection {
+  animation: color 3s infinite linear;
+  text-align: center;
+  padding: 2em;
+  color: red;
+  background: yellow;
+}
+
+/* git remote add origin https://github.com/suganthuu/tabel.git */
+.video {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+}

@@ -1,0 +1,140 @@
+1=  set default value   {value||0} //default is 0
+2={condition&&what to be executed}
+3=  
+ let store = createStore(
+   reduser,
+   //  below code to get redux dev tool
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ );
+ 4=
+ //get values from local storage and keep catche still if page reload
+  useEffect(() => {
+   const previousState = localStorage.getItem("user");
+   setValues(previousState);
+ }, []);
+// used to set value to local stoage
+// user is "key"word values= from state which to stored   [values]=if  value state changes it store that change
+ useEffect(() => {
+   localStorage.setItem("user", values);
+ }, [values]);
+ 5=
+ //calls action and link switch to given path compoent
+   <Link to="/">
+  {" "}
+  <button onClick={() => dispatch(negative())}>log out</button>
+</Link>;
+6=
+// get value from state of single reducer
+ const counter = useSelector((state) => state); 
+ 7= // to avoid empty values ,values only come in second cycle
+
+   componentDidMount() {
+    fetch("https://randomuser.me/api/")
+      .then((res) => res.json())
+      .then((res) => this.setState({ api: res.results[0], load: true }));
+
+        render() {
+    const data = this.state.api;
+    if (this.state.load === true) {
+  }
+}
+8=   style={{
+        backgroundImage: `url("https://cdn-media-2.freecodecamp.org/w1280/5f9ca22d740569d1a4ca5305.jpg")`,
+        height: "554px",
+        paddingTop: "0.1px",
+      }}
+9=
+//time out refresh page
+ useEffect(() => {
+    const timer = setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+10=
+//array inside array or Multidimensional Array
+let x = [
+['Jack', 24],
+['Sara', 23], 
+['Peter', 24]
+];
+
+// access the first item 
+console.log(x[0]); // ["Jack", 24]
+
+// access the first item of the first inner array
+console.log(x[0][0]); // Jack
+
+// access the second item of the third inner array
+console.log(x[2][1]); // 24
+
+{/* <span>  <code> <pre>  <div>; */}
+  11=
+  //fixed ppadding
+    float: left;
+12=
+// timed color cange background
+@keyframes color {
+  0% {
+    background: linear-gradient(
+      to right,
+      #51e2f5,
+      #9df9ef,
+      #edf756,
+      #ffa8b6,
+      #a28089
+    );
+  }
+  20% {
+    background: #33cc36;
+  }
+  40% {
+    background: #b8cc33;
+  }
+  60% {
+    background: linear-gradient(
+      to right,
+      #51e2f5,
+      #9df9ef,
+      #edf756,
+      #ffa8b6,
+      #a28089
+    );
+  }
+  80% {
+    background: #33cc36;
+  }
+  100% {
+    background: #33cccc;
+  }
+}
+
+.abc {
+  background: #33cccc; /* Fallback */
+  animation: color 3s infinite linear;
+  text-align: center;
+  padding: 2em;
+  opacity: 0.5;
+  width: fit-content;
+  height: 10px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 30%;
+}
+13=
+//z index makes video go behind all content
+.video {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+}
+  <video className="video" autoPlay loop muted>
+        <source
+          src={
+            "https://cdn.videvo.net/videvo_files/video/free/2016-03/large_watermarked/Hologram_Planet_by_nuva_preview.mp4"
+          }
+          type="video/mp4"
+        />
+      </video>

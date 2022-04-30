@@ -1,0 +1,576 @@
+/* /* import React from "react";
+import "./App.css";
+import Buttons from "./button";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      iplTeams: ["RCB", "DC", "MI", "KKR", "CSK", "SRH", "PBKS", "RR"],
+
+      input: "",
+      model: false,
+      para: "",
+      ipl: "",
+      edit: "",
+      show: true,
+      sho: true,
+      save: false,
+    };
+  }
+
+  input = (e) => {
+    let hh = e.target.value;
+    this.setState({ input: hh.toUpperCase() });
+  };
+
+  submit = () => {
+    let newTeam = this.state.iplTeams;
+    let added = this.state.input; // new team cskh input
+    let edt = this.state.edit; // edit button s value csk
+    let indexs = newTeam.indexOf(edt); // index no edit
+    let replaced = newTeam[indexs]; // team no of index ddd
+
+    console.log(added, edt, indexs);
+    let inc = newTeam.includes(this.state.input); //  if old team true
+
+    this.setState({ edit: added });
+    if (newTeam !== edt && added !== edt && this.state.sho !== inc) {
+      let splic = newTeam.splice(indexs, 1, added);
+      console.log(splic);
+      if (newTeam !== edt) {
+        this.setState({ newTeam: splic, iplTeams: newTeam });
+      }
+    }
+
+    let incl = newTeam.includes(this.state.input);
+    if (incl === true) {
+      this.editedToast();
+    } else {
+      this.addedModel();
+    }
+  };
+
+  delete = (x) => {
+    let newTeam = this.state.iplTeams;
+    newTeam = newTeam.filter((e) => e !== this.state.para);
+    this.setState({ iplTeams: newTeam });
+    this.cancel();
+    let teamss = this.state.para;
+    this.alreadyToast();
+  };
+  cancel = () => {
+    this.setState({ model: false });
+  };
+
+  display = (i) => {
+    this.setState({ show: !this.state.show });
+
+    this.setState({ input: i, edit: i }); // dc dc
+  };
+
+  addedModel = () => {
+    let added = this.state.input;
+    Toastify({
+      text: `${added}  added`,
+      duration: 800,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #008000=",
+      },
+    }).showToast();
+  };
+  alreadyToast = () => {
+    let added = this.state.input;
+    Toastify({
+      text: `${added}  already in list`,
+      duration: 800,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #FF0000",
+      },
+    }).showToast();
+  };
+  editedToast = () => {
+    let edt = this.state.edit;
+    let added = this.state.input;
+    Toastify({
+      text: ` edited in ${added}`,
+      duration: 900,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #EE82EE",
+      },
+    }).showToast();
+  };
+  edit2save = () => {
+    this.setState({ save: true });
+  };
+
+  render() {
+    // console.log(this.state.input); //dcj
+    return (
+      <div>
+        <input
+          id="myval"
+          onChange={this.input}
+          placeholder=" enter teams"
+          value={this.state.input}
+          type="text"
+        />
+        <button onClick={this.submit}>
+          {this.state.show !== true ? (
+            <span className="sav">edit </span>
+          ) : (
+            <span onClick={this.edit2save} className="edit">
+              {" "}
+              save
+            </span>
+          )}
+        </button>
+        <ol>
+          {this.state.iplTeams.map((ipl) => (
+            <h4>
+              <li>
+                {ipl}
+
+                <span onClick={() => this.display(ipl)} className="css1">
+                  edit
+                </span>
+                <span
+                  className="text-danger sizee"
+                  onClick={() => this.setState({ model: true, para: ipl })}
+                >
+                  delete
+                </span>
+              </li>
+            </h4>
+          ))}
+        </ol>
+
+        <div
+          className={this.state.model === true ? " modal show" : " modal "}
+          tabIndex="-1"
+          role="dialog"
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title"></h5>
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p></p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  onClick={this.delete}
+                  type="button"
+                  className="btn btn-primary"
+                >
+                  OK
+                </button>
+                <button
+                  onClick={this.cancel}
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+export default App; */
+/* =============================================================================================== */
+
+/*import React from "react";
+import "./App.css";
+import Buttons from "./button";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      iplTeams: ["RCB", "DC", "MI", "KKR", "CSK", "SRH", "PBKS", "RR"],
+      input: "",
+      model: false,
+      para: "",
+      ipl: "",
+      edit: "",
+      show: true,
+      sho: true,
+      save: false,
+    };
+  }
+
+  input = (e) => {
+    let hh = e.target.value;
+    this.setState({ input: hh.toUpperCase() });
+  };
+
+  submit = () => {
+    let newTeam = this.state.iplTeams;
+    let added = this.state.input; // new team cskh input
+    let edt = this.state.edit; // edit button s value csk
+    let selectedIndex = newTeam.indexOf(edt); //  if old team true
+    let inc = newTeam.includes(added);
+
+    this.setState({ edit: added });
+    if (this.state.save !== true && inc !== true) {
+      this.addedModel();
+      newTeam.push(added);
+    } else {
+      this.editedToast();
+      newTeam.splice(selectedIndex, 1, added);
+      this.setState({ save: false });
+    }
+  };
+
+  delete = (x) => {
+    let edt = this.state.edit; // edit button s value csk
+    let newTeam = this.state.iplTeams;
+    newTeam = newTeam.filter((e) => e !== this.state.para);
+    this.setState({ iplTeams: newTeam });
+    this.cancel();
+    let teamss = this.state.para;
+    Toastify({
+      text: ` deleted ${edt}`,
+      duration: 900,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #EE82EE",
+      },
+    }).showToast();
+  };
+  cancel = () => {
+    this.setState({ model: false });
+  };
+
+  display = (i) => {
+    this.setState({ show: !this.state.show });
+    this.setState({ save: true });
+    this.setState({ input: i, edit: i }); // dc dc
+  };
+
+  addedModel = () => {
+    let added = this.state.input;
+    Toastify({
+      text: `${added}  added`,
+      duration: 800,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #008000=",
+      },
+    }).showToast();
+  };
+  alreadyToast = () => {
+    let added = this.state.input;
+    Toastify({
+      text: `${added}  already in list`,
+      duration: 800,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #FF0000",
+      },
+    }).showToast();
+  };
+  editedToast = () => {
+    let edt = this.state.edit;
+    let added = this.state.input;
+    Toastify({
+      text: ` edited in ${added}`,
+      duration: 900,
+      destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: " #EE82EE",
+      },
+    }).showToast();
+  };
+  edit2save = () => {
+    this.setState({ save: false });
+  };
+  randomColor = () => {
+    var c = "#";
+    for (var i = 0; i < 6; i++) {
+      c += ((Math.random() * 16) | 0).toString(16);
+    }
+    return c;
+  };
+  clearInput = () => {
+    this.setState({ input: "" });
+
+    let added = this.state.input; // new team cskh input
+    if (!added) {
+      Toastify({
+        text: ` Input already Cleared`,
+        duration: 900,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: this.randomColor(),
+        },
+      }).showToast();
+    } else {
+      Toastify({
+        //
+        text: ` Input Cleared`,
+        duration: 900,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: " #EE82EE",
+        },
+      }).showToast();
+    }
+  };
+
+  render() {
+    // console.log(this.state.input); //dcj
+    return (
+      <div>
+        <input
+          id="myval"
+          onChange={this.input}
+          placeholder=" enter teams"
+          value={this.state.input}
+          type="text"
+        />
+        <button onClick={this.submit}>
+          {this.state.save === true ? (
+            <span className="sav">edit </span>
+          ) : (
+            <span onClick={this.edit2save} className="edit">
+              {" "}
+              save
+            </span>
+          )}
+        </button>
+        <button
+          className="p-3 mb-2 bg-success text-white"
+          onClick={this.clearInput}
+        >
+          {" "}
+          clear input
+        </button>
+        <ol>
+          {this.state.iplTeams.map((ipl, i) => (
+            <h4 key={i}>
+              <li>
+                {ipl}
+
+                <span onClick={() => this.display(ipl)} className="css1">
+                  edit
+                </span>
+                <span
+                  className="text-danger sizee"
+                  onClick={() => this.setState({ model: true, para: ipl })}
+                >
+                  delete
+                </span>
+              </li>
+            </h4>
+          ))}
+        </ol>
+
+        <div
+          className={this.state.model === true ? " modal show" : " modal "}
+          tabIndex="-1"
+          role="dialog"
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title"></h5>
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span onClick={this.cancel} aria-hidden="true">
+                    &times;
+                  </span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p></p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  onClick={this.delete}
+                  type="button"
+                  className="btn btn-primary"
+                >
+                  OK
+                </button>
+                <button
+                  onClick={this.cancel}
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+export default App;
+*/
+/* 
+.sizee {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.sav {
+  background-color: transparent;
+ 
+  padding: 0.3rem 0.8rem;
+  background-image: linear-gradient(45deg, green 50%, transparent 50%);
+  background-size: 300%;
+  background-position: 100%;
+  transition: all 0.4s ease;
+}
+
+.sav:hover {
+  background-position: 0;
+  color: white;
+}
+
+.css1 {
+  color: orange;
+  font-size: 12px;
+  cursor: pointer;
+}
+.alignn {
+  text-align: center;
+  color: rgb(0, 247, 255);
+}
+
+.edit {
+  background-color: transparent;
+
+  padding: 0.3rem 0.8rem;
+  background-image: linear-gradient(
+    45deg,
+    rgb(85, 234, 217) 50%,
+    transparent 50%
+  );
+  background-size: 300%;
+  background-position: 100%;
+  transition: all 0.4s ease;
+}
+
+.edit:hover {
+  background-position: 0;
+  color: white;
+} */
+
+/* ----------------------------------------------------------------------
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { createStore } from "redux";
+
+// Selector
+
+const vadi = "first";
+const gou = "second";
+
+// Action
+
+export const Vadivelu = () => ({ type: vadi });
+export const Goundamani = () => ({ type: gou });
+
+//Reducer
+const comedyReducer = (state, actions) => {
+  switch (actions.type) {
+    case vadi:
+      return (state = " first changed ");
+    case gou:
+      return (state = " second changed ");
+    default:
+      return (state = " no number");
+  }
+};
+
+// Store
+
+let store = createStore(comedyReducer);
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+// Dispath
+store.dispatch(Goundamani());
+
+ReactDOM.render(<h1>{store.getState()}</h1>, document.getElementById("root"));
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals(); */
