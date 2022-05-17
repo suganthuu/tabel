@@ -10,6 +10,9 @@ import { BrowserRouter } from "react-router-dom";
 import Age from "./age/age";
 import Calci from "./calculator/calci";
 import Table from "./table/table";
+import Api from "./api/api";
+import { TypeTest } from "./typeTest/typeTest";
+import { LetsCode } from "./learnings/letsCode";
 
 export const positive = () => ({ type: "positive" });
 export const negative = () => ({ type: "negative" });
@@ -46,7 +49,10 @@ ReactDOM.render(
         {/* <Apps /> */}
         {/* <Age /> */}
         {/* <Calci /> */}
-        <Table />
+        {/* <Table /> */}
+        {/* <Api /> */}
+        <TypeTest />
+        {/* <LetsCode /> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

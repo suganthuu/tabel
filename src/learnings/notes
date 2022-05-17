@@ -6,17 +6,20 @@
    //  below code to get redux dev tool
    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
  );
- 4=
- //get values from local storage and keep catche still if page reload
-  useEffect(() => {
-   const previousState = localStorage.getItem("user");
-   setValues(previousState);
- }, []);
-// used to set value to local stoage
-// user is "key"word values= from state which to stored   [values]=if  value state changes it store that change
- useEffect(() => {
-   localStorage.setItem("user", values);
- }, [values]);
+ 4=// storing state in local sotorage
+ // getting state
+   React.useEffect(() => {
+    const previousState = localStorage.getItem("T1"); //top score set to local storage
+    if (previousState) {
+      setT1(JSON.parse(previousState));
+    }
+  }, []);
+  //posting state
+  React.useEffect(() => {
+    localStorage.setItem("T1", JSON.stringify(t1));
+  }, [t1]);
+  //-
+
  5=
  //calls action and link switch to given path compoent
    <Link to="/">
@@ -138,3 +141,60 @@ console.log(x[2][1]); // 24
           type="video/mp4"
         />
       </video>
+      14=// get multiple data from input and ubdate to state
+      //get full state and ubdate what to ubdate and save 
+        const [state, setState] = useState({
+    password: "",
+    username: "",
+  });
+       const input = (e) => {
+    /* setState({ ...state, [e.target.name]: e.target.value });*/
+     setState((p) => {
+    return { ...p, [e.target.name]: e.target.value };
+  });
+  };
+  15=
+  //change tittle of app in component // can also use helmet to change :: use helmet in return
+    useEffect(() => {
+    document.title = "This is a title"
+  }, [])
+  15=  
+  //remove elements by values
+  //id =array value
+      const ar = get.filter((a) => a.id !== what to remove tis id);
+16= // model bootstrap
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+   <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      Input : Arr[] = { 1 , 2 , 3 , 4 , 5 , 5  }
+Output :  { 1 2 3 4 } 
+          { 5 , 5 }
+17=// take param by e. key in function
+  const escFunction = useCallback((event) => {
+    console.log(event.code);
+    if (event.key === "Escape") {
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction);
+    };
+  }, []);
